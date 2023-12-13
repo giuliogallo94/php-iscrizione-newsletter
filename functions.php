@@ -10,21 +10,19 @@ if (isset($_GET["email"])) {
     $email = $_GET["email"];
     if (!preg_match($pattern, $email)) {
         $validMail = false;
-        $_SESSION['email'] = $email;
+        unset($_SESSION['validEmail']);
+        $_SESSION['errorEmail'] = $email;
+        header('Location: ./index.php');
+        die;
     } else {
         $validMail = true;
-        $_SESSION['email'] = $email;
+        $_SESSION['validEmail'] = $email;
+        unset($_SESSION['errorEmail']);
         header('Location: ./thankyou.php');
-
         die;
 }
 
-$email = $_GET["email"];
 
- if (isset($_SESSION['auth']) && $_SESSION['auth'] === true) {
-     header('Location: ./thankyou.php');
-     die;
- }
 
 var_dump($_SESSION);
 }

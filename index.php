@@ -16,19 +16,12 @@ require_once __DIR__ . "/functions.php";
         <section class="text-center p-5">
             <form action="index.php" method="GET">
                 <label for="email"><h3>Inserisci la tua mail:</h3></label>
-                <input type="text" name="email" class="form-control w-50 mx-auto my-4">
+                <input type="text" name="email" class="form-control w-50 mx-auto my-4" placeholder="<?php if(isset($_SESSION["errorEmail"])) echo $_SESSION["errorEmail"]?>">
                 <button class="btn btn-primary" type="submit">Invia</button>
-                <?php if (isset($validMail)) { ?>
-                    <?php if ($validMail) { ?>
-                        <div class="alert alert-success mt-5" role="alert">
-                            La mail "<?php echo $email; ?>" è stata registrata correttamente! 
-                        </div> 
-                            <?php } else { ?> 
-                        <div class="alert alert-danger mt-5" role="alert">
-                            La mail "<?php echo $email; ?>"" da lei inserita non è in un formato valido! 
-                        </div> 
-                            <?php } ?> 
-                <?php } ?>
+                <?php if(isset($_SESSION['errorEmail'])) { ?>
+                <div class="alert alert-danger mt-5" role="alert">
+            <h2>La mail "<?php echo $_SESSION["errorEmail"]; ?>" non è valida!</h2>
+        </div> <?php } ?>
             </form>
         </section>
     </main>

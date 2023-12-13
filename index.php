@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . "/functions.php";
-
-
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +21,14 @@ require_once __DIR__ . "/functions.php";
                 <?php if (isset($validMail)) { ?>
                     <?php if ($validMail) { ?>
                         <div class="alert alert-success mt-5" role="alert">
-  La mail "<?php echo $email; ?>" è stata registrata correttamente! 
-</div> <?php } else { ?> <div class="alert alert-danger mt-5" role="alert">
-  La mail "<?php echo $email; ?>"" da lei inserita non è in un formato valido! 
-</div> <?php } ?> <?php } ?>
+                            La mail "<?php echo $email; ?>" è stata registrata correttamente! 
+                        </div> 
+                            <?php } else { ?> 
+                        <div class="alert alert-danger mt-5" role="alert">
+                            La mail "<?php echo $email; ?>"" da lei inserita non è in un formato valido! 
+                        </div> 
+                            <?php } ?> 
+                <?php } ?>
             </form>
         </section>
     </main>

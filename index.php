@@ -20,6 +20,13 @@ require_once __DIR__ . "/functions.php";
                 <label for="email"><h3>Inserisci la tua mail:</h3></label>
                 <input type="text" name="email" class="form-control w-50 mx-auto my-4">
                 <button class="btn btn-primary" type="submit">Invia</button>
+                <?php if (isset($validMail)) { ?>
+                    <?php if ($validMail) { ?>
+                        <div class="alert alert-success mt-5" role="alert">
+  La mail "<?php echo $email; ?>" è stata registrata correttamente! 
+</div> <?php } else { ?> <div class="alert alert-danger mt-5" role="alert">
+  La mail "<?php echo $email; ?>"" da lei inserita non è in un formato valido! 
+</div> <?php } ?> <?php } ?>
             </form>
         </section>
     </main>

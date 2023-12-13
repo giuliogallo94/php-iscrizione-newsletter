@@ -6,8 +6,8 @@ $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})
 if (isset($_GET["email"])) {
     $email = $_GET["email"];
     if (!preg_match($pattern, $email)) {
-        echo "Mail non valida";
+        $validMail = false;
     } else {
-    echo $email;
+        $validMail = true;
 }
 }

@@ -1,10 +1,17 @@
 <?php 
 
-if (isset($_GDT['email'])) {
+$pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i";
+// $email = $_GET["email"];
 
-$userEmail = $_GET['email'];
-echo ('$userEmail');
+if (isset($_GET["email"])) {
+    $email = $_GET["email"];
+    if (!preg_match($pattern, $email)) {
+        echo "Mail non valida";
+    } else {
+    echo $email;
 }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,7 @@ echo ('$userEmail');
         <section class="text-center p-5">
             <form action="index.php" method="GET">
                 <label for="email"><h3>Inserisci la tua mail:</h3></label>
-                <input type="email" name="email" class="form-control w-50 mx-auto my-4">
+                <input type="text" name="email" class="form-control w-50 mx-auto my-4">
                 <button class="btn btn-primary" type="submit">Invia</button>
             </form>
         </section>
